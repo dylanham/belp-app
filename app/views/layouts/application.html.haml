@@ -7,4 +7,17 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    = yield
+    %nav.navbar.navbar-fixed-top.navbar-yellow
+      .container
+        .row
+          .navbar-header.col-md-12
+            %ul.nav.navbar-nav.navbar-right
+              -if current_user
+                %li= link_to current_user.username, user_path(current_user)
+                %li= link_to 'Sign Out', sign_out_path
+              -else
+                %li= link_to 'Sign Up', sign_up_path
+                %li= link_to 'Sign In', sign_in_path
+            = link_to "Belp", root_path, id: 'logo'
+    .container
+      = yield
