@@ -1,25 +1,13 @@
-class UntappedApi
+class UntappdApi
 
-  # def initialize
-  #   @conn = Faraday.new(:url => 'https://api.untappd.com/')
-  # end
-  #
-  # def projects(token)
-  #   response = @conn.get do |req|
-  #     req.url "/services/v5/projects"
-  #     req.headers['Content-Type'] = 'application/json'
-  #     req.headers['X-TrackerToken'] = token
-  #   end
-  #   JSON.parse(response.body, symbolize_names: true)
-  # end
-  #
-  # def stories(token, project_id)
-  #   response = @conn.get do |req|
-  #     req.url "/services/v5/projects/#{project_id}/stories"
-  #     req.headers['Content-Type'] = 'application/json'
-  #     req.headers['X-TrackerToken'] = token
-  #   end
-  #   JSON.parse(response.body, symbolize_names: true)
-  # end
+  def initialize
+    @conn = Faraday.new(:url => 'https://api.untappd.com/')
+  end
 
+  def brewery(brewery_id)
+    response = @conn.get do |req|
+      req.url "/v4/brewery/info/#{brewery_id}?client_id=A26C895ABBB4E9A4865A8410C1183ADE50440609&client_secret=15A382B17DC8DFC8AAA763B52FD429F0E11F129E&compact=true"
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
 end
