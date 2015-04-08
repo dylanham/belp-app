@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
   root 'static_pages#welcome'
 
-  get 'sign-in', to: 'authentication#new'
-  post 'sign-in', to: 'authentication#create'
-  get 'sign-out', to: 'authentication#destroy'
-
-  get 'sign-up', to: 'registrations#new'
-  post 'sign-up', to: 'registrations#create'
+  get 'sign-out', to: 'sessions#destroy'
+  get 'brewery_map', to: 'breweries#index'
 
   resources :users, only: [:show]
 
+  get "auth/failure", to: redirect('/')
+  get "auth/twitter/callback", to: 'sessions#create'
+
+  
 end

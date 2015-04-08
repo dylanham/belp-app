@@ -1,6 +1,7 @@
 !!!
 %html
   %head
+
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title BelpApp
     = stylesheet_link_tag    'application', media: 'all'
@@ -13,11 +14,11 @@
           .navbar-header.col-md-12
             %ul.nav.navbar-nav.navbar-right
               -if current_user
-                %li= link_to current_user.username, user_path(current_user)
+                %li= link_to current_user.name
                 %li= link_to 'Sign Out', sign_out_path
               -else
-                %li= link_to 'Sign Up', sign_up_path
-                %li= link_to 'Sign In', sign_in_path
+                %li= link_to 'Sign In With Twitter', "auth/twitter"
             = link_to "Belp", root_path, id: 'logo'
     .container
+
       = yield
