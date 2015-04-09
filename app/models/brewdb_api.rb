@@ -1,14 +1,10 @@
-# class BrewdbAPI
-#
-#   def initialize
-#     @conn = Faraday.new(:url => 'http://api.brewerydb.com/')
-#   end
-#
-#   def breweries
-#     response = @conn.get do |req|
-#       req.url "/v2/breweries?key=abefbbd2c0fb92387e4d80157c348553"
-#       req.headers['HTTP_ACCEPT'] = 'application/json'
-#     end
-#     JSON.parse(response.body, symbolize_names: true)
-#   end
-# end
+array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+right = 0
+question_1 = array[0]
+if question_1.answer == 'Success'
+  right += 1
+else
+question_2 = array[1]
+question-3 = array[2]
+
+results = "#{right} out of #{array.length}"

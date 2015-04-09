@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'brewery_map', to: 'breweries#index'
 
   resources :users, only: [:show]
+  resources :states, only: [:show]
 
   get "auth/failure", to: redirect('/')
   get "auth/twitter/callback", to: 'sessions#create'
