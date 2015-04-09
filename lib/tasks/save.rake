@@ -4,7 +4,7 @@ namespace :save do
     puts 'saving...'
     response = UntappdApi.new
     10000.times do |i|
-      brewery = response.brewery(720+i)
+      brewery = response.brewery(788+i)
       if brewery[:meta][:code] == 500
         i += 1
       else
@@ -13,7 +13,7 @@ namespace :save do
           state: brewery[:response][:brewery][:location][:brewery_state]
         })
       end
-      sleep(28)
+      sleep(25 + rand(10))
       puts i
       puts 'saved'
     end
