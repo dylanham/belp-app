@@ -1,5 +1,7 @@
 .well.col-md-6.col-md-offset-3.text-center.cooltext
   = link_to 'Brewery map', brewery_map_path
+.col-md-6.col-md-offset-3.text-center
+  %h3 States
 - @states.each do |state|
   .well.col-md-6.col-md-offset-3.text-center.cooltext
     = link_to state.name, state_path(state)
