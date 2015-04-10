@@ -1,6 +1,6 @@
 .page-header
   .text-center
-    %h3= "#{@state.name} has #{pluralize(@state.breweries.count, 'brewery')} "
+    %h3= "#{@state.name} has #{pluralize(@state.breweries.count, 'brewery') } "
 - @state.breweries.each do |brewery|
   .well
     = brewery.name

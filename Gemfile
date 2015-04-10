@@ -16,6 +16,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'faraday', '~> 0.8.0'
 gem 'responders', '~> 2.1.0'
+gem 'dotenv-rails', '~> 2.0.1'
 
 group :development, :test do
   gem 'byebug'
