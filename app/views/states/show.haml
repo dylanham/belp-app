@@ -1,5 +1,9 @@
 .page-header
   .text-center
-    %h3= @state.name
+    %h3= "#{@state.name} has #{pluralize(@state.breweries.count, 'brewery')} "
 - @state.breweries.each do |brewery|
-  %p= brewery.name
+  .well
+    = brewery.name
+    .pull-right
+      - if brewery.website
+        =link_to brewery.website, brewery.website

@@ -1364,296 +1364,374 @@ Brewery.create({
   website: 'www.vinosbrewpub.com'
 })
 Brewery.create({
+  name: '101 North Brewing Company'
+  state: 'CA'
+  city: 'Petaluma'
+  phone: '(707) 778-8384'
+  brewery_type: 'Micro'
+  website: 'www.101northbeer.com'
+})
+Brewery.create({
+  name: '12 Bravo'
+  state: 'CA'
+  city: 'Sacramento'
+  phone: ''
+  brewery_type: 'Planning'
+  website: ''
+})
+Brewery.create({
+  name: '2 Tread Brewing Co'
+  state: 'CA'
+  city: 'San Francisco'
+  phone: ''
+  brewery_type: 'Planning'
+  website: 'www.2treadbrewing.com'
+})
+Brewery.create({
+  name: '21st Amendment Brewery Cafe'
+  state: 'CA'
+  city: 'San Francisco'
+  phone: '(415) 369-0900'
+  brewery_type: 'Brewpub'
+  website: 'www.21st-amendment.com'
+})
+Brewery.create({
+  name: '2Kids Brewing Company'
+  state: 'CA'
+  city: 'San Diego'
+  phone: '(858) 480-5437'
+  brewery_type: 'Micro'
+  website: 'www.twokidsbrewing.com'
+})
+Brewery.create({
+  name: '32 North Brewing Co'
+  state: 'CA'
+  city: 'San Diego'
+  phone: '(714) 791-8973'
+  brewery_type: 'Micro'
+  website: 'www.32NorthBrew.com'
+})
+Brewery.create({
+  name: 'Absolution Brewing Co'
+  state: 'CA'
+  city: 'Torrance'
+  phone: '(310) 490-4860'
+  brewery_type: 'Micro'
+  website: 'www.absolutionbrewingcompany.com'
+})
+Brewery.create({
+  name: 'Acoustic Ales Brewing Experiment'
+  state: 'CA'
+  city: 'San Diego'
+  phone: ''
+  brewery_type: 'Micro'
+  website: 'www.acousticales.com'
+})
+Brewery.create({
+  name: 'Aftershock Brewing Co'
+  state: 'CA'
+  city: 'Temecula'
+  phone: '(951) 972-2256'
+  brewery_type: 'Micro'
+  website: 'www.aftershockbrewingco.com'
+})
+Brewery.create({
+  name: 'Ale Industries'
+  state: 'CA'
+  city: 'Oakland'
+  phone: '(925) 470-5280'
+  brewery_type: 'Micro'
+  website: 'www.aleindustries.com'
+})
+Brewery.create({
+  name: 'Ale Industries'
+  state: 'CA'
+  city: 'Concord'
+  phone: '(925) 470-5280'
+  brewery_type: 'Micro'
+  website: 'www.aleindustries.com'
+})
+Brewery.create({
+  name: 'AleSmith Brewing Co'
+  state: 'CA'
+  city: 'San Diego'
+  phone: '(858) 549-9888'
+  brewery_type: 'Micro'
+  website: 'www.alesmith.com'
+})
+Brewery.create({
+  name: 'Allegory Ales'
+  state: 'CA'
+  city: 'Los Angeles'
+  phone: ''
+  brewery_type: 'Planning'
+  website: ''
+})
+Brewery.create({
+  name: 'Almanac Beer Company'
+  state: 'CA'
+  city: 'San Francisco'
+  phone: '(415) 992-3438'
+  brewery_type: 'Contract'
+  website: 'www.almanacbeer.com'
+})
+Brewery.create({
+  name: 'Alosta Brewing Co'
+  state: 'CA'
+  city: 'Covina'
+  phone: '(626) 470-7897'
+  brewery_type: 'Micro'
+  website: 'www.alostabrewing.com'
+})
+Brewery.create({
+  name: 'Alpenglow Beer Co'
+  state: 'CA'
+  city: 'Lafayette'
+  phone: ''
+  brewery_type: 'Planning'
+  website: 'www.buckwildbrew.com'
+})
+Brewery.create({
+  name: 'Alpine Beer Co'
+  state: 'CA'
+  city: 'Alpine'
+  phone: '(619) 445-2337'
+  brewery_type: 'Brewpub'
+  website: 'www.alpinebrewing.com'
+})
+Brewery.create({
+  name: 'Altamont Beer Works'
+  state: 'CA'
+  city: 'Livermore'
+  phone: '(925) 294-8970'
+  brewery_type: 'Micro'
+  website: 'www.altamontbeerworks.com'
+})
+Brewery.create({
+  name: 'Alvarado Street Brewery & Grill'
+  state: 'CA'
+  city: 'Monterey'
+  phone: ''
+  brewery_type: 'Brewpub'
+  website: 'www.alvaradostreetbrewery.com'
+})
+Brewery.create({
+  name: 'American Craft Brewers Co-op'
+  state: 'CA'
+  city: 'Planning'
+  phone: '(619) 888-3142'
+  brewery_type: ''
+  website: ''
+})
+Brewery.create({
+  name: 'American Dream Brewing'
+  state: 'CA'
+  city: 'Thousand Oaks'
+  phone: '(310) 780-5345'
+  brewery_type: 'Planning'
+  website: 'americandreambrewing.com'
+})
+Brewery.create({
+  name: 'American River Brewing Co'
+  state: 'CA'
+  city: 'Rancho Cordova'
+  phone: '(916) 508-0098'
+  brewery_type: 'Micro'
+  website: ''
+})
+Brewery.create({
+  name: 'Amplified Ale Works'
+  state: 'CA'
+  city: 'San Diego'
+  phone: '(650) 380-4220'
+  brewery_type: 'Brewpub'
+  website: 'www.amplifiedales.com'
+})
+Brewery.create({
+  name: 'Anacapa Brewing Co'
+  state: 'CA'
+  city: 'Ventura'
+  phone: '(805) 643-2337'
+  brewery_type: 'Brewpub'
+  website: 'www.anacapabrewing.com'
+})
+Brewery.create({
+  name: 'Anaheim Brewery'
+  state: 'CA'
+  city: 'Anaheim'
+  phone: '(714) 780-1888'
+  brewery_type: 'Micro'
+  website: 'www.anaheimbrew.com'
+})
+Brewery.create({
+  name: 'Anchor Brewing Co'
+  state: 'CA'
+  city: 'San Francisco'
+  phone: '(415) 863-8350'
+  brewery_type: 'Regional'
+  website: 'www.anchorbrewing.com'
+})
+Brewery.create({
+  name: 'Anderson Valley Brewing Co'
+  state: 'CA'
+  city: 'Boonville'
+  phone: '(707) 895-2337'
+  brewery_type: 'Regional'
+  website: 'www.avbc.com'
+})
+Brewery.create({
+  name: 'Angel City Brewery'
+  state: 'CA'
+  city: 'Los Angeles'
+  phone: '(213) 622-1261'
+  brewery_type: 'Micro'
+  website: 'www.angelcitybrewery.com'
+})
+Brewery.create({
+  name: 'Anheuser-Busch Inc – Fairfield'
+  state: 'CA'
+  city: 'Fairfield'
+  phone: '(707) 429-2000'
+  brewery_type: 'Large'
+  website: ''
+})
+Brewery.create({
+  name: 'Anheuser-Busch Inc - Los Angeles'
+  state: 'CA'
+  city: 'Van Nuys'
+  phone: '(818) 989-5300'
+  brewery_type: 'Large'
+  website: ''
+})
+Brewery.create({
+  name: 'Arcana Brewing Company'
+  state: 'CA'
+  city: 'Carlsbad'
+  phone: ''
+  brewery_type: 'Micro'
+  website: 'www.arcanabrewing.com'
+})
+Brewery.create({
+  name: 'Area 51 Craft Brewery'
+  state: 'CA'
+  city: 'Riverside'
+  phone: 'Micro'
+  brewery_type: 'www.area51craftbrewery.com'
+  website: ''
+})
+Brewery.create({
+  name: 'Armstrong Brewing Co'
+  state: 'CA'
+  city: 'San Francisco'
+  phone: '(415) 745-2739'
+  brewery_type: 'Micro'
+  website: 'www.armstrongbrewing.com'
+})
+Brewery.create({
+  name: 'Art District Brewing Company'
+  state: 'CA'
+  city: 'Los Angeles'
+  phone: ''
+  brewery_type: 'Planning'
+  website: ''
+})
+Brewery.create({
+  name: 'Artifex Brewing Company'
+  state: 'CA'
+  city: 'San Clemente'
+  phone: '(949) 429-7805'
+  brewery_type: 'Micro'
+  website: 'www.artifexbrewing.com'
+})
+Brewery.create({
+  name: 'Auburn Alehouse'
+  state: 'CA'
+  city: 'Auburn'
+  phone: '(530) 885-2537'
+  brewery_type: 'Brewpub'
+  website: 'www.auburnalehouse.com'
+})
+Brewery.create({
+  name: 'Automatic Brewing Co. / Blind Lady Alehouse'
+  state: 'CA'
+  city: 'San Diego'
+  phone: '(619) 200-7522'
+  brewery_type: 'Brewpub'
+  website: 'www.blindlady.blogspot.com'
+})
+Brewery.create({
+  name: 'Aztec Brewing Company'
+  state: 'CA'
+  city: 'Vista'
+  phone: '(800) 706-7720'
+  brewery_type: 'Micro'
+  website: 'www.aztecbrewery.com'
+})
+Brewery.create({
+  name: 'Babe\'s Bar B Que and Brewery'
+  state: 'CA'
+  city: 'Rancho Mirage'
+  phone: '(760) 346-8738'
+  brewery_type: 'Brewpub'
+  website: ''
+})
+Brewery.create({
   name: ''
-  state: ''
+  state: 'CA'
   city: ''
   phone: ''
   brewery_type: ''
   website: ''
 })
 Brewery.create({
+  name: 'Back Street Brewery/Lamppost Pizza'
+  state: 'CA'
+  city: 'Vista'
+  phone: '(760) 407-7600'
+  brewery_type: 'Brewpub'
+  website: 'www.lamppostpizza.com'
+})
+Brewery.create({
+  name: 'Back Street Brewery/Lamppost Pizza'
+  state: 'CA'
+  city: 'Tustin'
+  phone: '(714) 731-6171'
+  brewery_type: 'Brewpub'
+  website: 'www.lamppostpizza.com
+'
+})
+Brewery.create({
+  name: 'Back Street Brewery/Lamppost Pizza'
+  state: 'CA'
+  city: 'Irvine'
+  phone: '(949) 857-0160'
+  brewery_type: 'Brewpub'
+  website: 'www.lamppostpizza.com'
+})
+Brewery.create({
+  name: 'Back Street Brewery/Lamppost Pizza'
+  state: 'CA'
+  city: 'La Quinta'
+  phone: '(760) 564-4568'
+  brewery_type: 'Brewpub'
+  website: 'www.lamppostpizza.com'
+})
+Brewery.create({
+  name: 'Baeltane Brewing'
+  state: 'CA'
+  city: 'Novato'
+  phone: '(415) 883-2040'
+  brewery_type: 'Micro'
+  website: 'www.baeltanebrewing.com'
+})
+Brewery.create({
   name: ''
-  state: ''
+  state: 'CA'
   city: ''
   phone: ''
   brewery_type: ''
   website: ''
 })
-
-
-101 North Brewing Company
-1304 Scott St Ste D
-Petaluma, CA 94954-7100 | Map
-Phone: (707) 778-8384
-Type: Micro
-www.101northbeer.com
-
-12 Bravo
-Sacramento, CA
-Type: Planning
-
-2 Tread Brewing Co
-San Francisco, CA 94131
-Type: Planning
-www.2treadbrewing.com
-
-21st Amendment Brewery Cafe
-563 2nd St
-San Francisco, CA 94107-1411 | Map
-Phone: (415) 369-0900
-Type: Brewpub
-www.21st-amendment.com
-
-2Kids Brewing Company
-8680 Miralani Dr Ste 123
-San Diego, CA 92126-6391 | Map
-Phone: (858) 480-5437
-Type: Micro
-www.twokidsbrewing.com
-32 North Brewing Co
-8655 Production Ave Ste A
-San Diego, CA 92121-2258 | Map
-Phone: (714) 791-8973
-Type: Micro
-www.32NorthBrew.com
-
-Absolution Brewing Co
-2878 Columbia St
-Torrance, CA 90503-3808 | Map
-Phone: (310) 490-4860
-Type: Micro
-www.absolutionbrewingcompany.com
-
-Acoustic Ales Brewing Experiment
-1795 Hancock St Ste P1
-San Diego, CA 92110-2006 | Map
-Type: Micro
-www.acousticales.com
-
-Aftershock Brewing Co
-28822 Old Town Front St Ste 209
-Temecula, CA 92590-2723 | Map
-Phone: (951) 972-2256
-Type: Micro
-www.aftershockbrewingco.com
-
-Ale Industries
-3096 E 10th St
-Oakland, CA 94601-2960 | Map
-Phone: (925) 470-5280
-Type: Micro
-www.aleindustries.com
-Ale Industries
-975 Detroit Ave Ste E
-Concord, CA 94518-2526 | Map
-Phone: (925) 470-5280
-Type: Micro
-www.aleindustries.com
-AleSmith Brewing Co
-9368 Cabot Dr
-San Diego, CA 92126-4311 | Map
-Phone: (858) 549-9888
-Type: Micro
-www.alesmith.com
-
-Allegory Ales
-Los Angeles, CA 90041
-Type: Planning
-Almanac Beer Company
-2325 3rd St Ste 202
-San Francisco, CA 94107-3167 | Map
-Phone: (415) 992-3438
-Type: Contract
-www.almanacbeer.com
-
-Alosta Brewing Co
-692 Arrow Grand Cir
-Covina, CA 91722-2122 | Map
-Phone: (626) 470-7897
-Type: Micro
-www.alostabrewing.com
-
-Alpenglow Beer Co
-Lafayette, CA
-Type: Planning
-www.buckwildbrew.com
-
-Alpine Beer Co
-PO Box 2530
-Alpine, CA 91903-2530 | Map
-Phone: (619) 445-2337
-Type: Brewpub
-www.alpinebrewing.com
-
-Altamont Beer Works
-2402 Research Dr
-Livermore, CA 94550-3850 | Map
-Phone: (925) 294-8970
-Type: Micro
-www.altamontbeerworks.com
-
-Alvarado Street Brewery & Grill
-426 Alvarado St
-Monterey, CA 93940-2711 | Map
-Type: Brewpub
-www.alvaradostreetbrewery.com
-
-American Craft Brewers Co-op
-Carlsbad, CA 92011-4652
-Phone: (619) 888-3142
-Type: Planning
-American Dream Brewing
-Thousand Oaks, CA 91360-5224
-Phone: (310) 780-5345
-Type: Planning
-americandreambrewing.com
-
-American River Brewing Co
-11151 Trade Center Dr Ste 104
-Rancho Cordova, CA 95670-6403 | Map
-Phone: (916) 508-0098
-Type: Micro
-
-Amplified Ale Works
-4150 Mission Blvd Ste 208
-San Diego, CA 92109-5054 | Map
-Phone: (650) 380-4220
-Type: Brewpub
-www.amplifiedales.com
-
-Anacapa Brewing Co
-472 E Main St
-Ventura, CA 93001-2627 | Map
-Phone: (805) 643-2337
-Type: Brewpub
-www.anacapabrewing.com
-Anaheim Brewery
-336 S Anaheim Blvd
-Anaheim, CA 92805-3830 | Map
-Phone: (714) 780-1888
-Type: Micro
-www.anaheimbrew.com
-
-Anchor Brewing Co
-1705 Mariposa St
-San Francisco, CA 94107-2334 | Map
-Phone: (415) 863-8350
-Type: Regional
-www.anchorbrewing.com
-
-Anderson Valley Brewing Co
-PO Box 505
-Boonville, CA 95415-0505 | Map
-Phone: (707) 895-2337
-Type: Regional
-www.avbc.com
-
-Angel City Brewery
-216 S Alameda St
-Los Angeles, CA 90012-4201 | Map
-Phone: (213) 622-1261
-Type: Micro
-www.angelcitybrewery.com
-
-Anheuser-Busch Inc – Fairfield
-3101 Busch Dr
-Fairfield, CA 94534-9726 | Map
-Phone: (707) 429-2000
-Type: Large
-
-Anheuser-Busch Inc - Los Angeles
-15800 Roscoe Blvd
-Van Nuys, CA 91406-1350 | Map
-Phone: (818) 989-5300
-Type: Large
-
-Arcana Brewing Company
-5621 Palmer Way Ste C
-Carlsbad, CA 92010-7254 | Map
-Type: Micro
-www.arcanabrewing.com
-
-Area 51 Craft Brewery
-7123 Arlington Ave Ste A
-Riverside, CA 92503-1521 | Map
-Type: Micro
-www.area51craftbrewery.com
-Armstrong Brewing Co
-415 Grant Ave
-San Francisco, CA 94108-3208 | Map
-Phone: (415) 745-2739
-Type: Micro
-www.armstrongbrewing.com
-Art District Brewing Company
-Los Angeles, CA 90028-5304
-Type: Planning
-
-Artifex Brewing Company
-919 Calle Amanecer Ste A
-San Clemente, CA 92673-6298 | Map
-Phone: (949) 429-7805
-Type: Micro
-www.artifexbrewing.com
-
-Auburn Alehouse
-289 Washington St
-Auburn, CA 95603-5036 | Map
-Phone: (530) 885-2537
-Type: Brewpub
-www.auburnalehouse.com
-
-Automatic Brewing Co. / Blind Lady Alehouse
-3416 Adams Ave
-San Diego, CA 92116-2428 | Map
-Phone: (619) 200-7522
-Type: Brewpub
-www.blindlady.blogspot.com
-Aztec Brewing Company
-2330 La Mirada Dr Ste 300
-Vista, CA 92081-7871 | Map
-Phone: (800) 706-7720
-Type: Micro
-www.aztecbrewery.com
-Babe's Bar B Que and Brewery
-71800 Highway 111 Ste A176
-Rancho Mirage, CA 92270-4495 | Map
-Phone: (760) 346-8738
-Type: Brewpub
-
-Back Street Brewery/Lamppost Pizza
-15 Main St Ste 100
-Vista, CA 92083-5800 | Map
-Phone: (760) 407-7600
-Type: Brewpub
-www.lamppostpizza.com
-
-Back Street Brewery/Lamppost Pizza
-3002 Dow Ave Ste 404
-Tustin, CA 92780-7236 | Map
-Phone: (714) 731-6171
-Type: Brewpub
-www.lamppostpizza.com
-
-Back Street Brewery/Lamppost Pizza
-14450 Culver Dr Ste E
-Irvine, CA 92604-0300 | Map
-Phone: (949) 857-0160
-Type: Brewpub
-www.lamppostpizza.com
-
-Back Street Brewery/Lamppost Pizza
-78772 Highway 111
-La Quinta, CA 92253-2044 | Map
-Phone: (760) 564-4568
-Type: Brewpub
-www.lamppostpizza.com
-
-Baeltane Brewing
-401 Bel Marin Keys Blvd Ste B
-Novato, CA 94949-5645 | Map
-Phone: (415) 883-2040
-Type: Micro
-www.baeltanebrewing.com
 
 Bagby Beer Company
 601 S Coast Hwy

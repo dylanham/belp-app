@@ -1,153 +1,153 @@
 class StateMap
   AREAS = [{
     id: "US-AL",
-    value: 3 +Brewery.where(state: 'AL').count
+    value: SecondBrewery.where(state_abbr: 'AL').count
   }, {
     id: "US-AK",
-    value: 3 +Brewery.where(state: 'AK').count
+    value: SecondBrewery.where(state_abbr: 'AK').count
   }, {
     id: "US-AZ",
-    value: 3 +Brewery.where(state: 'AZ').count
+    value: SecondBrewery.where(state_abbr: 'AZ').count
   }, {
     id: "US-AR",
-    value: 3 +Brewery.where(state: 'AL').count
+    value: SecondBrewery.where(state_abbr: 'AL').count
   }, {
     id: "US-CA",
-    value: 3 +Brewery.where(state: 'CA').count
+    value: SecondBrewery.where(state_abbr: 'CA').count
   }, {
     id: "US-CO",
-    value: 3 +Brewery.where(state: 'CO').count
+    value: SecondBrewery.where(state_abbr: 'CO').count
   }, {
     id: "US-CT",
-    value: 3 +Brewery.where(state: 'CT').count
+    value: SecondBrewery.where(state_abbr: 'CT').count
   }, {
     id: "US-DE",
-    value: 3 +Brewery.where(state: 'DE').count
+    value: SecondBrewery.where(state_abbr: 'DE').count
   }, {
     id: "US-FL",
-    value: 3 +Brewery.where(state: 'FL').count
+    value: SecondBrewery.where(state_abbr: 'FL').count
   }, {
     id: "US-GA",
-    value: 3 +Brewery.where(state: 'GA').count
+    value: SecondBrewery.where(state_abbr: 'GA').count
   }, {
     id: "US-HI",
-    value: 3 +Brewery.where(state: 'HI').count
+    value: SecondBrewery.where(state_abbr: 'HI').count
   }, {
     id: "US-ID",
-    value: 3 +Brewery.where(state: 'ID').count
+    value: SecondBrewery.where(state_abbr: 'ID').count
   }, {
     id: "US-IL",
-    value: 3 +Brewery.where(state: 'IL').count
+    value: SecondBrewery.where(state_abbr: 'IL').count
   }, {
     id: "US-IN",
-    value: 3 +Brewery.where(state: 'IN').count
+    value: SecondBrewery.where(state_abbr: 'IN').count
   }, {
     id: "US-IA",
-    value: 3 +Brewery.where(state: 'IA').count
+    value: SecondBrewery.where(state_abbr: 'IA').count
   }, {
     id: "US-KS",
-    value: 3 +Brewery.where(state: 'KS').count
+    value: SecondBrewery.where(state_abbr: 'KS').count
   }, {
     id: "US-KY",
-    value: 3 +Brewery.where(state: 'KY').count
+    value: SecondBrewery.where(state_abbr: 'KY').count
   }, {
     id: "US-LA",
-    value: 3 +Brewery.where(state: 'LA').count
+    value: SecondBrewery.where(state_abbr: 'LA').count
   }, {
     id: "US-ME",
-    value: 3 +Brewery.where(state: 'ME').count
+    value: SecondBrewery.where(state_abbr: 'ME').count
   }, {
     id: "US-MD",
-    value: 3 +Brewery.where(state: 'MD').count
+    value: SecondBrewery.where(state_abbr: 'MD').count
   }, {
     id: "US-MA",
-    value: 3 +Brewery.where(state: 'MA').count
+    value: SecondBrewery.where(state_abbr: 'MA').count
   }, {
     id: "US-MI",
-    value: 3 +Brewery.where(state: 'MI').count
+    value: SecondBrewery.where(state_abbr: 'MI').count
   }, {
     id: "US-MN",
-    value: 3 +Brewery.where(state: 'MN').count
+    value: SecondBrewery.where(state_abbr: 'MN').count
   }, {
     id: "US-MS",
-    value: 3 +Brewery.where(state: 'MS').count
+    value: SecondBrewery.where(state_abbr: 'MS').count
   }, {
     id: "US-MO",
-    value: 3 +Brewery.where(state: 'MO').count
+    value: SecondBrewery.where(state_abbr: 'MO').count
   }, {
     id: "US-MT",
-    value: 3 +Brewery.where(state: 'MT').count
+    value: SecondBrewery.where(state_abbr: 'MT').count
   }, {
     id: "US-NE",
-    value: 3 +Brewery.where(state: 'NE').count
+    value: SecondBrewery.where(state_abbr: 'NE').count
   }, {
     id: "US-NV",
-    value: 3 +Brewery.where(state: 'NV').count
+    value: SecondBrewery.where(state_abbr: 'NV').count
   }, {
     id: "US-NH",
-    value: 3 +Brewery.where(state: 'NH').count
+    value: SecondBrewery.where(state_abbr: 'NH').count
   }, {
     id: "US-NJ",
-    value: 3 +Brewery.where(state: 'NJ').count
+    value: SecondBrewery.where(state_abbr: 'NJ').count
   }, {
     id: "US-NM",
-    value: 3 +Brewery.where(state: 'NM').count
+    value: SecondBrewery.where(state_abbr: 'NM').count
   }, {
     id: "US-NY",
-    value: 3 +Brewery.where(state: 'NY').count
+    value: SecondBrewery.where(state_abbr: 'NY').count
   }, {
     id: "US-NC",
-    value: 3 +Brewery.where(state: 'NC').count
+    value: SecondBrewery.where(state_abbr: 'NC').count
   }, {
     id: "US-ND",
-    value: 3 +Brewery.where(state: 'ND').count
+    value: SecondBrewery.where(state_abbr: 'ND').count
   }, {
     id: "US-OH",
-    value: 3 +Brewery.where(state: 'OH').count
+    value: SecondBrewery.where(state_abbr: 'OH').count
   }, {
     id: "US-OK",
-    value: 3 +Brewery.where(state: 'OK').count
+    value: SecondBrewery.where(state_abbr: 'OK').count
   }, {
     id: "US-OR",
-    value: 3 +Brewery.where(state: 'OR').count
+    value: SecondBrewery.where(state_abbr: 'OR').count
   }, {
     id: "US-PA",
-    value: 3 +Brewery.where(state: 'PA').count
+    value: SecondBrewery.where(state_abbr: 'PA').count
   }, {
     id: "US-RI",
-    value: 3 +Brewery.where(state: 'RI').count
+    value: SecondBrewery.where(state_abbr: 'RI').count
   }, {
     id: "US-SC",
-    value: 3 +Brewery.where(state: 'SC').count
+    value: SecondBrewery.where(state_abbr: 'SC').count
   }, {
     id: "US-SD",
-    value: 3 +Brewery.where(state: 'SD').count
+    value: SecondBrewery.where(state_abbr: 'SD').count
   }, {
     id: "US-TN",
-    value: 3 +Brewery.where(state: 'TN').count
+    value: SecondBrewery.where(state_abbr: 'TN').count
   }, {
     id: "US-TX",
-    value: 3 +Brewery.where(state: 'TX').count
+    value: SecondBrewery.where(state_abbr: 'TX').count
   }, {
     id: "US-UT",
-    value: 3 +Brewery.where(state: 'UT').count
+    value: SecondBrewery.where(state_abbr: 'UT').count
   }, {
     id: "US-VT",
-    value: 3 +Brewery.where(state: 'VT').count
+    value: SecondBrewery.where(state_abbr: 'VT').count
   }, {
     id: "US-VA",
-    value: 3 +Brewery.where(state: 'VA').count
+    value: SecondBrewery.where(state_abbr: 'VA').count
   }, {
     id: "US-WA",
-    value: 3 +Brewery.where(state: 'WA').count
+    value: SecondBrewery.where(state_abbr: 'WA').count
   }, {
     id: "US-WV",
-    value: 3 +Brewery.where(state: 'WV').count
+    value: SecondBrewery.where(state_abbr: 'WV').count
   }, {
     id: "US-WI",
-    value: 3 +Brewery.where(state: 'WI').count
+    value: SecondBrewery.where(state_abbr: 'WI').count
   }, {
     id: "US-WY",
-    value: 3 +Brewery.where(state: 'WY').count
+    value: SecondBrewery.where(state_abbr: 'WY').count
   }]
 end

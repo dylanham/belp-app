@@ -6,7 +6,7 @@ var mapAreas = $.getJSON('http://localhost:3000/brewery_map.json', function(data
 		type: "map",
 	    "theme": "none",
 	    pathToImages: "http://www.amcharts.com/lib/3/images/",
-		colorSteps: 100,
+		colorSteps: 50,
 		dataProvider: {
 			map: "usaLow",
 			areas: $.map(data, function(val, i) {
@@ -15,7 +15,7 @@ var mapAreas = $.getJSON('http://localhost:3000/brewery_map.json', function(data
 		},
 
 		areasSettings: {
-			autoZoom: false
+			autoZoom: true
 		},
 
 		valueLegend: {
