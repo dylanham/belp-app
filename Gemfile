@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'omniauth-twitter'
-gem 'rails_12factor', '~> 0.0.3'
+gem 'rails_12factor', '~> 0.0.3', group: :production
 gem 'bootstrap-sass'
 gem 'haml'
 gem 'haml-rails'

@@ -1,2 +1,5 @@
 = link_to 'Brewery map', brewery_map_path
--# = @brewery[:response][:brewery][:location][:brewery_state]
+%hr
+- @states.each do |state|
+  %p= link_to state.name, state_path(state), class: 'btn btn-primary'
+  %hr

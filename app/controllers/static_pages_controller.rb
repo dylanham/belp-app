@@ -1,8 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def welcome
-    # request = UntappdApi.new
-    # @brewery = request.brewery
+    @states = State.all
   end
 
 end
