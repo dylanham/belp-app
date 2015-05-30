@@ -1,6 +1,5 @@
 
 var mapAreas = $.getJSON('http://localhost:3000/brewery_map.json', function(data) {
-  console.log(data);
 	var map = AmCharts.makeChart("chartdiv", {
 
 		type: "map",
