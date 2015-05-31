@@ -3,8 +3,9 @@ $(document).ready(function() {
     var city = $(this).closest('div').find('input').val();
     var breweries = $.getJSON('http://localhost:3000/brewery_info.json', function(data) {
       var filtered = data.filter(function(element){
-        console.log(element['city'])
-        return element['city'] === city;
+        if (element['city'] != null){
+          return element['city'].toLowerCase() === city.toLowerCase();
+        }
       });
       filtered.forEach(function(object){
         var webinfo;
@@ -17,7 +18,6 @@ $(document).ready(function() {
         } else {
           webInfo = 'No website listed';
         }
-
         var name = '<td><a href=/breweries/'+ object['id']  + '>'+object['name']+'</a></td>'
         var address = '<td>' + object['address'] + '</td>'
         var city = '<td>' + object['city'] + '</td>'
@@ -33,7 +33,9 @@ $(document).ready(function() {
     var state = $(this).closest('div').find('input').val();
     var states = $.getJSON('http://localhost:3000/brewery_info.json', function(data) {
       var filtered = data.filter(function(element){
-        return element['state'] === state;
+        if (element['state'] != null){
+          return element['state'].toLowerCase() === state.toLowerCase();
+        }
       });
       filtered.forEach(function(object){
         var webinfo;
