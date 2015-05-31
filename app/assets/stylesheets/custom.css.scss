@@ -2,11 +2,19 @@ body {
   padding-top: 70px;
 }
 
-.navbar-yellow {
-    background-color: #D86000;
-    border-color: #E7E7E7;
-  }
+.yellow {
+  background-color: yellow;
+}
 
+.navbar-yellow, .btn-yellow {
+  background-color: #D86000;
+  border-color: #E7E7E7;
+}
+
+.beer-map {
+  height: 450px;
+  width: 100%;
+}
 h3 {
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
   font-size: 30px;
