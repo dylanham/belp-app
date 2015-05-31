@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :states, only: [:show]
   resources :breweries, only: [:show]
+  resources :second_breweries do
+    resources :comments, only: [:create]
+  end
 
   get "auth/failure", to: redirect('/')
   get "auth/twitter/callback", to: 'sessions#create'
