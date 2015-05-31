@@ -1,0 +1,20 @@
+$(document).ready(function(){
+  var query = $('#brewery-name').text().replace('&', ' ').split(' ').join('+')
+  var cityState = $('#city-state').text().trim().split(' ').join('+');
+  var google_key = '<%= ENV['secret_google_key'] %>'
+  $('iframe').first().attr('src','https://www.google.com/maps/embed/v1/place?key='+ google_key +'&q=' + query + ',' +cityState);
+  $("#submit-comment").on("click", function(e) {
+    var url = $('#comment-form')[0].getAttribute('action')
+    var answer = $('#comment_area').val();
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: { "comment": {'content': answer}},
+      success: function(data) {
+        $('#comment_area').val('');
+        $('.comments').append('<div class="well"><div class="pull-right"></div>'+data['content']+'</div>');
+      }
+    });
+    e.preventDefault();
+  });
+});

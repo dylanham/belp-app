@@ -1,2 +1,22 @@
-=@brewery.name
-%iframe{width:"600", height:"450", frameborder:"0", style:"border:0", src:"https://www.google.com/maps/embed/v1/place?key=AIzaSyA5pNv0t4eXixPXpXSCtW0fGCXcQCllsng&q=Oskar+Blues,Longmont+CO"}
+.page-header
+  .pull-right#city-state
+    %h5="#{@brewery.city} #{@brewery.state}"
+  %h1#brewery-name=@brewery.name
+.row
+  .col-md-6
+    %iframe{class: 'beer-map', frameborder:"0", style:"border:0", src:'#'}
+  .col-md-6
+    = form_for [@brewery, @comment], html:{id:'comment-form'} do |f|
+      .form-group
+        = f.label :content
+        = f.text_area :content, class: 'form-control', id: 'comment_area', rows: '4'
+      .form-group
+        = f.submit 'Post Comment', class: 'btn btn-success', id: 'submit-comment'
+  .col-md-6.comments
+%br
+%br
+-@comments.each do |comment|
+  .well
+    .pull-right
+      =comment.created_at.strftime('%A, %b %d %Y at %l:%M %p')
+    = comment.content
