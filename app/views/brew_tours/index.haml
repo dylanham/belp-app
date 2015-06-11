@@ -1,0 +1,22 @@
+.row
+  .col-md-6
+    %iframe{class: 'brew-tour-map', frameborder:"0", style:"border:0", src:"#"}
+  .col-md-6
+    .build-tour
+      %div{id:"cart"}
+        %h1 Brew Tour Stops
+        %div{class:"ui-widget-content"}
+          %ol
+            %li{class:"placeholder"}Drag a Brewery Name Here
+        %br
+        %button.btn.btn-success#build-tour Build Tour
+      %div{id:"products"}
+        %table{class:"table table-striped"}
+          %thead
+            %th Brewery
+            %th Address
+            %th City
+            %th State
+            %th Zipcode
+            %th Website
+          %tbody{id:"catalog"}
