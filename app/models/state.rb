@@ -1,6 +1,6 @@
 class State < ActiveRecord::Base
 
   def breweries
-    SecondBrewery.where(state: self.name)
+    Brewery.where(state: self.name)
   end
 end
