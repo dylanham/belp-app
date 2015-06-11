@@ -2,10 +2,12 @@ $(document).ready(function(){
   var query = $('#brewery-name').text().replace('&', ' ').split(' ').join('+')
   var cityState = $('#city-state').text().trim().split(' ').join('+');
   var google_key = '<%= ENV['secret_google_key'] %>'
-  $('iframe').first().attr('src','https://www.google.com/maps/embed/v1/place?key='+ google_key +'&q=' + query + ',' +cityState);
+  $('.beer-map').first().attr('src','https://www.google.com/maps/embed/v1/place?key='+ google_key +'&q=' + query + ',' +cityState);
   $("#submit-comment").on("click", function(e) {
     var url = $('#comment-form')[0].getAttribute('action')
+    console.log(url);
     var answer = $('#comment_area').val();
+    console.log(answer);
     $.ajax({
       type: "POST",
       url: url,
