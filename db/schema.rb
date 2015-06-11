@@ -11,28 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530202839) do
+ActiveRecord::Schema.define(version: 20150610141324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "breweries", force: :cascade do |t|
-    t.string   "state"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "state_id"
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.integer  "second_brewery_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
-  create_table "second_breweries", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
     t.string   "city"
@@ -46,8 +30,18 @@ ActiveRecord::Schema.define(version: 20150530202839) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "second_s", force: :cascade do |t|
-    t.string   "brewery"
+  create_table "comments", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "brewery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "score"
+    t.integer  "user_id"
+    t.integer  "brewery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,8 +57,10 @@ ActiveRecord::Schema.define(version: 20150530202839) do
     t.string   "uid"
     t.string   "name"
     t.string   "provider"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
 end
