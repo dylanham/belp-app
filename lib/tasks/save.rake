@@ -1,12 +1,12 @@
 namespace :save do
   desc 'Saves breweries to 2nd db'
-  task second_brewery: :environment do
+  task brewery: :environment do
     puts 'saving...'
     1000.times do |i|
       brewerydb_api = BrewerydbApi.new
       locations_response = brewerydb_api.brewery_locations(1+i)
       locations_response[:data].each do |location_hash|
-        SecondBrewery.create({
+        Brewery.create({
           name: location_hash[:brewery][:name],
           address: location_hash[:streetAddress],
           city: location_hash[:locality],
@@ -25,7 +25,7 @@ namespace :save do
   desc 'Updates States abbreviations'
   task update_abbr: :environment do
     puts 'updating!'
-    us_breweries = SecondBrewery.where(country: 'US')
+    us_breweries = Brewery.where(country: 'US')
     us_breweries.where(state: 'Alabama').update_all(state_abbr: 'AL')
     us_breweries.where(state: 'Alaska').update_all(state_abbr: 'AK')
     us_breweries.where(state: 'Arizona').update_all(state_abbr: 'AZ')
