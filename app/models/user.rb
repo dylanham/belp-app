@@ -7,7 +7,9 @@ class User < ActiveRecord::Base
     User.create!({
       provider: auth["provider"],
       uid: auth["uid"],
-      name: auth["info"]["name"]
+      name: auth["info"]["name"],
+      oauth_token: auth["credentials"]["token"],
+      oauth_expires_at: Time.at(auth["credentials"]["expires_at"])
     })
   end
 end
