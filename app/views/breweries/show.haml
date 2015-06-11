@@ -4,7 +4,7 @@
   %h1#brewery-name=@brewery.name
 .row
   .col-md-6
-    %iframe{class: 'beer-map', frameborder:"0", style:"border:0", src:'#'}
+    %iframe{class: 'beer-map', frameborder:"0", style:"border:0", src:"https://www.google.com/maps/embed/v1/directions?key=#{ENV['secret_google_key']}&origin=Oslo+Norway&destination=Telemark+Norway&avoid=tolls|highways"}
   .col-md-6
     = form_for [@brewery, @comment], html:{id:'comment-form'} do |f|
       .form-group

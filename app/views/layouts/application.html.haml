@@ -4,19 +4,24 @@
 
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title BelpApp
+    = include_gon
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     = csrf_meta_tags
   %body
-    %nav.navbar.navbar-fixed-top.navbar-yellow
+    %nav.navbar.navbar.navbar-yellow
       .container
         .row
           .navbar-header.col-md-12
             %ul.nav.navbar-nav.navbar-right
               -if current_user
-                %li= link_to current_user.name
-                %li= link_to 'Sign Out', sign_out_path
+                %li= link_to current_user.name, user_path(current_user)
+                %li= link_to 'Sign Out', signout_path
               -else
+                %li= link_to 'Sign In With Facebook', "/auth/facebook"
             = link_to "Belp", root_path, id: 'logo'
     .container
 
