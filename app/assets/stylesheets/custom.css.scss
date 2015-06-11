@@ -1,20 +1,49 @@
 body {
-  padding-top: 70px;
+  background-image: url(Beer-Liquid-Background.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+.navbar{
+  padding-bottom: 60px;
 }
 
 .yellow {
   background-color: yellow;
 }
 
+#cart {
+  margin-top: -20px;
+}
+
+.ui-widget-content {
+  border-radius: 5px;
+}
+
 .navbar-yellow, .btn-yellow {
-  background-color: #D86000;
-  border-color: #E7E7E7;
+  // background-image: url(foam.jpg);
+  background-color: rgba(255, 255, 255, .01);
+  // background-color: #D86000;
+  // border-color: #E7E7E7;
+}
+
+.hidden {
+  display: none;
 }
 
 .beer-map {
   height: 450px;
   width: 100%;
 }
+
+.brew-tour-map {
+  height: 550px;
+  width: 100%;
+}
+
 h3 {
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
   font-size: 30px;
@@ -98,25 +127,27 @@ h3 {
 }
 
 ul.nav li a, ul.nav li a:visited {
-    color: white;
+  padding-top: 20px;
+  color: #D86000;
+  font-weight: bold;
 }
 
 ul.nav li a:hover, ul.nav li a:active {
-    color: black ;
+  color: black ;
 }
 
 ul.nav li.active a {
-    color: white ;
+  color: yellow;
 }
 
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
+  font-size: 2.2em;
+  color: #D86000;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 12px;
+  padding-top: 15px;
   font-weight: bold;
   line-height: 1;
 }
