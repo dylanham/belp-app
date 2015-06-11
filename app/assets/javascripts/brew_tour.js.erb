@@ -1,0 +1,34 @@
+$(document).ready(function(){
+  var google_key = '<%= ENV['secret_google_key'] %>'
+  $('.brew-tour-map').first().attr('src','https://www.google.com/maps/embed/v1/place?key='+ google_key +'&q=' + localStorage['city']);
+  $(document).on('click', '#build-tour', function(){
+    var breweries = $('#cart').find('li');
+    var destinations = $.map(breweries, function(brewery, _i){
+      return brewery.innerHTML;
+    });
+    var waypoints = buildWaypoints(destinations);
+    var query = buildQuery(waypoints);
+    var originAndDestination = '&origin='+paramifyString(destinations[0])+'&destination='+paramifyString(destinations[destinations.length-1]);
+    $('.brew-tour-map').first().attr('src','https://www.google.com/maps/embed/v1/directions?key='+google_key+originAndDestination+query);
+  });
+});
+
+function buildWaypoints (array){
+  results = {};
+  array.forEach(function(place, index){
+    results[index] = results[place] || paramifyString(place)
+  });
+  return results
+}
+
+function paramifyString(string){
+  return string.replace(/\s/g, '+').replace(/[&]/g, 'and').concat(','+localStorage['city']);
+}
+
+function buildQuery(object){
+  results = '&waypoints='
+  for (prop in object){
+    results += object[prop] + '|'
+  }
+  return results.slice(0,-1);
+}
