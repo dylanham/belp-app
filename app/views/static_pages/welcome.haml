@@ -1,18 +1,20 @@
-.well.col-md-6.col-md-offset-3.text-center.cooltext
-  = link_to 'Brewery map', brewery_map_path
 .row
   .col-md-6.col-md-offset-3
-    .input-group>
+    .input-group
       %input{type:"text", class:"form-control", placeholder:"Enter City"}
       %span{class:"input-group-btn"}
         %button{class:"btn btn-default beer-finder", type:"button"}Search
 %br
 .row
   .col-md-6.col-md-offset-3
-    .input-group>
+    .input-group
       %input{type:"text", class:"form-control", placeholder:"Enter State"}
       %span{class:"input-group-btn"}
         %button{class:"btn btn-default state-finder", type:"button"}Search
+%br
+.loading.text-center Loading
+%br
+= link_to 'Build a Brew Tour', brew_tours_path, class: 'btn btn-primary'
 %br
 %table{class:"table table-striped"}
   %thead
