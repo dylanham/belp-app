@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'omniauth-twitter'
+gem 'jquery-ui-rails'
+gem 'gon', '~> 5.2.3'
+gem 'omniauth-facebook'
 gem 'rails_12factor', '~> 0.0.3', group: :production
 gem 'bootstrap-sass'
 gem 'haml'
