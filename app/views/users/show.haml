@@ -1,2 +1,23 @@
-%button{class: 'btn btn-default', id: 'beer-route'} Build a Brew Tour
-.build-tour
+- @user.ratings.order(created_at: :desc).each do |rating|
+  .col-md-6.well{class: 'brewerys', rating: rating.score}
+    = link_to "#{rating.brewery.name}:", brewery_path(rating.brewery)
+    %i{class:"fa fa-beer"}
+    %i{class:"fa fa-beer"}
+    %i{class:"fa fa-beer"}
+    %i{class:"fa fa-beer"}
+    %i{class:"fa fa-beer"}
+    .pull-right=rating.created_at.strftime('%A, %b %d %Y')
+- @user.brew_tours.each do |tour|
+  = link_to "Tour: #{tour.title}", user_brew_tour_path(@user, tour)
+:javascript
+  var breweries = $(".brewerys")
+  $.each(breweries, function(i, brewery){
+    var rating = brewery.getAttribute('rating')
+    var stars = $(brewery).find('i')
+    stars.hide();
+    $.each(stars, function(i, star){
+      if (i < rating){
+        $(star).show()
+      }
+    })
+  });
