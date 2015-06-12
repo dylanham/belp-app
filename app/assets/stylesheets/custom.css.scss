@@ -7,6 +7,14 @@ body {
   background-color: #464646;
 }
 
+.title{
+  margin-bottom: 10px;
+  border-radius: 5px;
+
+}
+.save-word{
+  margin-left: 10px;
+}
 .navbar{
   padding-bottom: 60px;
 }
@@ -19,10 +27,20 @@ body {
   margin-top: -20px;
 }
 
+#products td{
+  cursor: move;
+}
+
+.login {
+  margin-top: 10%;
+}
+
 .ui-widget-content {
   border-radius: 5px;
 }
-
+.drag{
+  cursor: move;
+}
 .navbar-yellow, .btn-yellow {
   // background-image: url(foam.jpg);
   background-color: rgba(255, 255, 255, .01);
@@ -39,7 +57,7 @@ body {
   width: 100%;
 }
 
-.brew-tour-map {
+.brew-tour-map, .user-brew-tour-map {
   height: 550px;
   width: 100%;
 }
