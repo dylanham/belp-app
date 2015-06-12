@@ -4,10 +4,8 @@ $(document).ready(function(){
   var google_key = '<%= ENV['secret_google_key'] %>'
   $('.beer-map').first().attr('src','https://www.google.com/maps/embed/v1/place?key='+ google_key +'&q=' + query + ',' +cityState);
   $("#submit-comment").on("click", function(e) {
-    var url = $('#comment-form')[0].getAttribute('action')
-    console.log(url);
+    var url = $('#comment-form')[0].getAttribute('action');
     var answer = $('#comment_area').val();
-    console.log(answer);
     $.ajax({
       type: "POST",
       url: url,
@@ -15,8 +13,26 @@ $(document).ready(function(){
       success: function(data) {
         $('#comment_area').val('');
         $('.comments').append('<div class="well"><div class="pull-right"></div>'+data['content']+'</div>');
+      },
+      failure: function(data){
+        console.log('hi');
       }
     });
     e.preventDefault();
   });
+  // $("#submit-rating").on("click", function(e){
+  //   var url = $('#rating-form')[0].getAttribute('action');
+  //   var answer = $('#rating_score').val();
+  //   $.ajax({
+  //     type: "POST",
+  //     url: url,
+  //     data: {'rating': {'score': answer}},
+  //     success: function(data) {
+  //       var results = $("#brewery-name")[0].getAttribute('average_rating') || 0;
+  //       var numberOfRatings = $("#brewery-name")[0].getAttribute('number_of_ratings') || 0;
+  //
+  //     }
+  //   })
+  //   e.preventDefault();
+  // })
 });
