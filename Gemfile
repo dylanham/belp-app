@@ -6,7 +6,6 @@ gem 'omniauth-facebook'
 gem 'rails_12factor', '~> 0.0.3', group: :production
 gem 'bootstrap-sass'
 gem 'haml'
-gem 'haml-rails'
 gem 'rails', '4.2.0'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -19,6 +18,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faraday', '~> 0.8.0'
 gem 'responders', '~> 2.1.0'
 gem 'dotenv-rails', '~> 2.0.1'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'byebug'
