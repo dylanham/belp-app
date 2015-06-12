@@ -5,13 +5,18 @@
     .build-tour
       %div{id:"cart"}
         %h1 Brew Tour Stops
+        %input.title.form-control{placeholder: 'Enter A Title'}
         %div{class:"ui-widget-content"}
           %ol
             %li{class:"placeholder"}Drag a Brewery Name Here
         %br
         %button.btn.btn-success#build-tour Build Tour
+        %button.btn.btn-success#save-tour Save Tour
+      .loading.text-center
+        Loading
+        %i{class:"fa fa-spinner fa-pulse"}
       %div{id:"products"}
-        %table{class:"table table-striped"}
+        %table{id: 'brew-table', class:"table table-striped"}
           %thead
             %th Brewery
             %th Address
