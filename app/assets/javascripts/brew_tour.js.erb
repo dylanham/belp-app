@@ -2,6 +2,7 @@ $(document).ready(function(){
   var google_key = '<%= ENV['secret_google_key'] %>'
   $('.brew-tour-map').first().attr('src','https://www.google.com/maps/embed/v1/place?key='+ google_key +'&q=' + localStorage['city']);
   $(document).on('click', '#build-tour', function(){
+    $('.error').remove();
     var breweries = $('#cart').find('li');
     var destinations = $.map(breweries, function(brewery, _i){
       return brewery.innerHTML;
@@ -11,14 +12,56 @@ $(document).ready(function(){
     var originAndDestination = '&origin='+paramifyString(destinations[0])+'&destination='+paramifyString(destinations[destinations.length-1]);
     $('.brew-tour-map').first().attr('src','https://www.google.com/maps/embed/v1/directions?key='+google_key+originAndDestination+query);
   });
+
+  $(document).on('click', '#save-tour', function(e){
+    $('.error').remove();
+    var that = this;
+    var errors = [];
+    $(this).replaceWith('<i class="save-word">saving</i><i class="saving fa fa-spinner fa-pulse"></i>')
+    var title = $('.title').val();
+    if (!title){
+      errors.push('Title can\t be blank!');
+      $('<p class="error text-danger">Title can\'t be blank!</p>').insertAfter('.title')
+    }
+    var breweries = $('#cart').find('li');
+    var destinations = $.map(breweries, function(brewery, _i){
+      return brewery.innerHTML;
+    });
+    if (destinations[0] === 'Drag a Brewery Name Here'){
+      errors.push('You must select a brewery!');
+      $('<p class="error text-danger">You must select a brewery!</p>').insertAfter('.ui-widget-content');
+    }
+    var waypoints = buildWaypoints(destinations);
+    var query = buildQuery(waypoints);
+    if (errors.length < 1){
+      var originAndDestination = '&origin='+paramifyString(destinations[0])+'&destination='+paramifyString(destinations[destinations.length-1]);
+      $('.brew-tour-map').first().attr('src','https://www.google.com/maps/embed/v1/directions?key='+google_key+originAndDestination+query);
+    }
+    $.ajax({
+      type: "POST",
+      url: '/brew_tours',
+      data: { "brew_tour": {'origin_and_origin':originAndDestination,'query': query, 'title': title}},
+      success: function(data) {
+        if (errors.length < 1){
+          $('<p class="error text-success">Saved successfully!</p>').insertAfter('.ui-widget-content');
+        }
+        $('.saving').replaceWith(that);
+        $('.save-word').remove();
+      }
+    });
+    e.preventDefault();
+  });
+
+  $(document).on('click', '#clear-tour', function(e){
+  });
 });
 
 function buildWaypoints (array){
-  results = {};
+  var results = {};
   array.forEach(function(place, index){
-    results[index] = results[place] || paramifyString(place)
+    results[index] = results[place] || paramifyString(place);
   });
-  return results
+  return results;
 }
 
 function paramifyString(string){
@@ -26,9 +69,9 @@ function paramifyString(string){
 }
 
 function buildQuery(object){
-  results = '&waypoints='
+  var results = '&waypoints=';
   for (prop in object){
-    results += object[prop] + '|'
+    results += object[prop] + '|';
   }
   return results.slice(0,-1);
 }
