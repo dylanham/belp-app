@@ -9,6 +9,7 @@ class BreweriesController < ApplicationController
     @brewery = Brewery.find(params[:id])
     @comment = Comment.new
     @comments = Comment.where(brewery_id: params[:id])
+    @rating = Rating.new
   end
 
   def info
