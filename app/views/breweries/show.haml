@@ -1,22 +1,49 @@
 .page-header
   .pull-right#city-state
     %h5="#{@brewery.city} #{@brewery.state}"
-  %h1#brewery-name=@brewery.name
+  %h1#brewery-name{average_rating: @brewery.average_rating, number_of_ratings: @brewery.ratings.count}=@brewery.name
+  User Ratings:
+  %i.stars{class:"fa fa-beer fa-2x"}
+  %i.stars{class:"fa fa-beer fa-2x"}
+  %i.stars{class:"fa fa-beer fa-2x"}
+  %i.stars{class:"fa fa-beer fa-2x"}
+  %i.stars{class:"fa fa-beer fa-2x"}
 .row
   .col-md-6
-    %iframe{class: 'beer-map', frameborder:"0", style:"border:0", src:"https://www.google.com/maps/embed/v1/directions?key=#{ENV['secret_google_key']}&origin=Oslo+Norway&destination=Telemark+Norway&avoid=tolls|highways"}
+    %iframe{class: 'beer-map', frameborder:"0", style:"border:0", src:"#"}
   .col-md-6
     = form_for [@brewery, @comment], html:{id:'comment-form'} do |f|
       .form-group
-        = f.label :content
-        = f.text_area :content, class: 'form-control', id: 'comment_area', rows: '4'
+        - if current_user
+          = f.label :content
+          = f.text_area :content, class: 'form-control', id: 'comment_area', rows: '4', placeholder: "What beer did you like?\nWhat did you like about #{@brewery.name}?"
+        - else
+          .alert.alert-warning{role:"alert"}
+            Please Login to Post a comment!
       .form-group
-        = f.submit 'Post Comment', class: 'btn btn-success', id: 'submit-comment'
+        - if current_user
+          = f.submit 'Post Comment', class: 'btn btn-success', id: 'submit-comment'
+    - if current_user && !current_user.has_rated_brewery?(@brewery)
+      = form_for [@brewery, @rating], html:{id:'rating-form'} do |f|
+        .form-group
+          = f.label :rating
+          = f.collection_select :score, [0,1,2,3,4,5], :to_s, :to_i, {}
+        .form-group
+          = f.submit 'Rate it!', class: 'btn btn-success', id: 'submit-rating'
   .col-md-6.comments
 %br
 %br
--@comments.each do |comment|
+-@comments.order(created_at: :desc).each do |comment|
   .well
     .pull-right
-      =comment.created_at.strftime('%A, %b %d %Y at %l:%M %p')
-    = comment.content
+      =comment.created_at.strftime('%A, %b %d %Y')
+    = "#{comment.user.name}: \"#{comment.content}\""
+:javascript
+  var averageRating = $("#brewery-name")[0].getAttribute('average_rating');
+  var stars = $('.stars');
+  stars.hide();
+  $.each(stars, function(i, star){
+    if (i < averageRating){
+      $(star).show();
+    }
+  })
