@@ -4,16 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user
-  before_filter :set_gon
+  before_action :save_url
 
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
-  protected
-
-  def set_gon
-    gon.my_session_variable = session[:user_id]
+  def save_url
+    session[:return_to] = request.referrer
   end
 end
