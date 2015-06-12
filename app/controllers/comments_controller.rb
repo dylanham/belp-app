@@ -20,5 +20,4 @@ class CommentsController < ApplicationController
   def set_brewery
     @brewery = Brewery.find(params[:brewery_id])
   end
-
 end
