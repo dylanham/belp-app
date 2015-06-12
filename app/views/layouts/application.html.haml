@@ -21,8 +21,16 @@
                 %li= link_to current_user.name, user_path(current_user)
                 %li= link_to 'Sign Out', signout_path
               -else
-                %li= link_to 'Sign In With Facebook', "/auth/facebook"
+                .btn-group.login
+                  %a.btn.btn-primary.disabled
+                    %i.fa.fa-facebook
+                  %a.btn.btn-primary{href:'/auth/facebook'} Sign in with Facebook
             = link_to "Belp", root_path, id: 'logo'
     .container
-
+      -if flash[:notice]
+        .alert.alert-success
+          = flash[:notice]
+      -if flash[:error]
+        .alert.alert-danger
+          = flash[:error]
       = yield
