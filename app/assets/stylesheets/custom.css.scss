@@ -7,10 +7,19 @@ body {
   background-color: #464646;
 }
 
+.beer-modal a {
+}
+
+.olive{
+  background-color: olive;
+}
+
 .title{
   margin-bottom: 10px;
   border-radius: 5px;
-
+}
+.hidden{
+  display: none;
 }
 .save-word{
   margin-left: 10px;
@@ -62,7 +71,7 @@ body {
   width: 100%;
 }
 
-h3 {
+h3{
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
   font-size: 30px;
   padding: 40px 50px;
