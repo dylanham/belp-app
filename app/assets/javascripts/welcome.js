@@ -64,44 +64,6 @@ function findBreweriesByCity(query, breweriesJson){
   });
 }
 
-// function findBreweriesByState(query){
-//   $('table').hide()
-//   $('.loading').show('slow')
-//   $('tbody').empty()
-//   var state = query;
-//   localStorage.removeItem('city');
-//   localStorage.setItem('state', state);
-//   var breweries = $.getJSON('/brewery_info.json', function(data) {
-//     var filtered = data.filter(function(element){
-//       if (element['state'] != null){
-//         return element['state'].toLowerCase() === state.toLowerCase();
-//       }
-//     });
-//     filtered.forEach(function(object){
-//       var webinfo;
-//       if (object['website'] != null){
-//         if (object['website'].charAt(object['website'].length -1) === '/') {
-//           webInfo = object['website'].slice(0, -1);
-//         } else {
-//           webInfo = object['website'];
-//         }
-//       } else {
-//         webInfo = '';
-//       }
-//       $('.loading').hide('slow')
-//       $('table').show('slow')
-//       var name = '<td><a href=/breweries/'+ object['id']  + '>'+object['name']+'</a></td>'
-//       var address = '<td>' + object['address'] + '</td>'
-//       var city = '<td>' + object['city'] + '</td>'
-//       var state= '<td>' + object['state'] + '</td>'
-//       var zipcode= '<td>' + object['zipcode'] + '</td>'
-//       var website = '<td><a href='+webInfo+'>'+webInfo+'</a></td>'
-//       $('tbody').append('<tr>'+ name + address + city + state + zipcode + website +'</tr>');
-//     });
-//   });
-// }
-
-
 $(document).ready(function() {
   $('table').hide();
   $('.loading').hide();
@@ -109,7 +71,9 @@ $(document).ready(function() {
   if (localStorage['city']){
     $('.loading').show('slow');
   }
-  var breweries = $.getJSON('/brewery_info.json', function(data) {
+
+  if(localStorage['dataCache']){
+    var data = JSON.parse(localStorage['dataCache']);
     $(function() {
       var availableTags = data.map(function(brewery){
         return handleNull(brewery.city);
@@ -124,11 +88,35 @@ $(document).ready(function() {
       var query = localStorage['city'];
       findBreweriesByCity(query, data);
     }
-
+    localStorage.setItem("dataCache", JSON.stringify(data));
+    console.log(localStorage['dataCache']);
     $(document).on('click', '.beer-finder', function(){
       $('.loading').show('slow');
       var query = $(this).closest('div').find('input').val();
       findBreweriesByCity(query, data);
     });
-  });
+  } else {
+    var breweries = $.getJSON('/brewery_info.json', function(data) {
+      $(function() {
+        var availableTags = data.map(function(brewery){
+          return handleNull(brewery.city);
+        }).filter(function(element, i, array){
+          return array.indexOf(element) === i;
+        })
+        $( "#tags" ).autocomplete({
+          source: availableTags
+        });
+      });
+      if (localStorage['city']) {
+        var query = localStorage['city'];
+        findBreweriesByCity(query, data);
+      }
+      localStorage.setItem("dataCache", JSON.stringify(data));
+      $(document).on('click', '.beer-finder', function(){
+        $('.loading').show('slow');
+        var query = $(this).closest('div').find('input').val();
+        findBreweriesByCity(query, data);
+      });
+    });
+  }
 });
