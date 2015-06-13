@@ -1,14 +1,31 @@
-- @user.ratings.order(created_at: :desc).each do |rating|
-  .col-md-6.well{class: 'brewerys', rating: rating.score}
-    = link_to "#{rating.brewery.name}:", brewery_path(rating.brewery)
-    %i{class:"fa fa-beer"}
-    %i{class:"fa fa-beer"}
-    %i{class:"fa fa-beer"}
-    %i{class:"fa fa-beer"}
-    %i{class:"fa fa-beer"}
-    .pull-right=rating.created_at.strftime('%A, %b %d %Y')
-- @user.brew_tours.each do |tour|
-  = link_to "Tour: #{tour.title}", user_brew_tour_path(@user, tour)
+.row
+  .col-md-6
+    %button{type:"button", class:"btn btn-primary", "data-toggle" => "modal", "data-target" => ".bs-example-modal-lg"}View Your Breweries
+  .col-md-6
+    %button{type:"button", class:"btn btn-primary pull-right", "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm"}View Your Tours
+%br
+.row
+  .modal.fade.bs-example-modal-lg{tabindex:"-1", role:"dialog", "aria-labelledby"=>"myLargeModalLabel",  "aria-hidden" => "true"}
+    .modal-dialog.modal-lg
+      .modal-content
+        %h3.modal-header Breweries Visited
+        - @user.ratings.order(created_at: :desc).each do |rating|
+          .well{class: 'brewerys', rating: rating.score}
+            = link_to "#{rating.brewery.name}:", brewery_path(rating.brewery)
+            %i{class:"fa fa-beer"}
+            %i{class:"fa fa-beer"}
+            %i{class:"fa fa-beer"}
+            %i{class:"fa fa-beer"}
+            %i{class:"fa fa-beer"}
+            .pull-right=rating.created_at.strftime('%A, %b %d %Y')
+.row
+  .modal.fade.bs-example-modal-sm{tabindex:"-1", role:"dialog", "aria-labelledby" => "mySmallModalLabel", "aria-hidden" =>"true"}
+    .modal-dialog.modal-sm
+      .modal-content
+        %h3.modal-header Tours
+        %ol.beer-background
+          - @user.brew_tours.order(created_at: :asc).each do |tour|
+            %li.beer-modal= link_to "Tour: #{tour.title}", user_brew_tour_path(@user, tour)
 :javascript
   var breweries = $(".brewerys")
   $.each(breweries, function(i, brewery){
