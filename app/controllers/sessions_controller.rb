@@ -8,7 +8,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    temp = session[:return_to]
+    session.clear
+    session[:return_to] = temp
     flash[:notice] = 'Goodbye'
     redirect_to session[:return_to] || root_path
   end
