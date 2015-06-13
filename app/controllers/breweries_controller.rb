@@ -2,7 +2,6 @@ class BreweriesController < ApplicationController
   respond_to :json, :html
 
   def index
-    respond_with(StateMap::AREAS)
   end
 
   def show
@@ -13,6 +12,6 @@ class BreweriesController < ApplicationController
   end
 
   def info
-    respond_with(Brewery.all)
+    respond_with(Brewery.all.order(name: :asc))
   end
 end
