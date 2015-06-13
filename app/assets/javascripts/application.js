@@ -12,8 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require anmap.js
-//= require anmap2.js
-//= require anmap3.js
 //= require_tree .
 //= require bootstrap-sprockets
