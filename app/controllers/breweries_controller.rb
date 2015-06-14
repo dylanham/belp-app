@@ -12,6 +12,6 @@ class BreweriesController < ApplicationController
   end
 
   def info
-    respond_with(Brewery.all.order(name: :asc))
+    respond_with(Brewery.all.order(state: :asc).order(name: :asc))
   end
 end
