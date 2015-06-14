@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'static_pages#welcome'
 
   get 'sign-out', to: 'sessions#destroy'
-  get 'brewery_map', to: 'breweries#index'
   get 'brewery_info', to: 'breweries#info'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
