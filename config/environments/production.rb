@@ -5,6 +5,7 @@ Rails.application.configure do
   config.serve_static_files = true
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
   config.assets.compile = true
+  config.assets.precompile += %w( .svg .eot .woff .ttf .png .jpg .gif)
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
