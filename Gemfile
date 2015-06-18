@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'jquery-ui-rails'
 gem 'omniauth-facebook'
-gem 'rails_12factor', '~> 0.0.3', group: :production
+gem 'rails_12factor', group: :production
 gem 'bootstrap-sass'
 gem 'haml'
 gem 'rails', '4.2.0'
