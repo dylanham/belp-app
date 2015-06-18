@@ -82,6 +82,7 @@ function makeSet(array){
 }
 
 function buildSelect(array){
+  $('.select-form, .state-filter').remove();
   var results ='<select class="form-control select-form">';
   array.forEach(function(state){
     results += '<option>'+state+'</option>';
@@ -115,19 +116,19 @@ $(document).ready(function() {
       var availableTags = data.map(function(brewery){
         return handleNull(brewery.city);
       }).filter(function(element, i, array){
-        return array.indexOf(element) === i;
+          return array.indexOf(element) === i;
       })
       $( "#tags" ).autocomplete({
         source: availableTags
       });
     });
     if (localStorage['city'] && localStorage['state']){
+      $('.select-form').remove();
       var query = localStorage['city'];
       var state = localStorage['state'];
       findBreweriesByCity(query, data);
       filterByState(state)
-    }
-    else if (localStorage['city']) {
+    } else if (localStorage['city']) {
       var query = localStorage['city'];
       localStorage.removeItem('state');
       findBreweriesByCity(query, data);
@@ -141,13 +142,13 @@ $(document).ready(function() {
     });
     $(document).on('click', '.beer-finder', function(){
       $('.select-form, .state-filter, .alert-danger').remove();
-      $('.loading').show('slow');
       var query = $(this).closest('div').find('input').val();
       localStorage.removeItem('state');
       findBreweriesByCity(query, data);
     });
   } else {
     var breweries = $.getJSON('/brewery_info.json', function(data) {
+      $('.select-form, .state-filter').remove();
       $(function() {
         var availableTags = makeSet(data.map(function(brewery){
           return handleNull(brewery.city);
@@ -161,11 +162,7 @@ $(document).ready(function() {
         findBreweriesByCity(query, data);
       }
       localStorage.setItem("dataCache", JSON.stringify(data));
-      $(document).on('click', '.beer-finder', function(){
-        $('.loading').show('slow');
-        var query = $(this).closest('div').find('input').val();
-        findBreweriesByCity(query, data);
-      });
+      $('.loading').hide('slow');
     });
   }
 });

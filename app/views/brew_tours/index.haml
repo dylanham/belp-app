@@ -11,7 +11,8 @@
             %li{class:"placeholder"}Drag a Brewery Name Here
         %br
         %button.btn.btn-success#build-tour Build Tour
-        %button.btn.btn-success#save-tour Save Tour
+        - if current_user
+          %button.btn.btn-success#save-tour Save Tour
       .loading.text-center
         Loading
         %i{class:"fa fa-spinner fa-pulse"}
