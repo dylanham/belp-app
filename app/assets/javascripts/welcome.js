@@ -184,9 +184,6 @@ $(document).ready(function() {
       localStorage.removeItem('state');
       buildBreweriesTable(query, data);
     });
-    $(document).on('click', '#btn-login', function(){
-      localStorage.clear();
-    });
   } else {
     $('.loading').show('slow');
     var breweries = $.getJSON('/brewery_info.json', function(data) {
@@ -205,10 +202,7 @@ $(document).ready(function() {
       }
       localStorage.setItem("dataCache", JSON.stringify(data));
       $('.loading').hide('slow');
-
-      if (window.location.origin === 'http://www.belp-it.com'){
-        location.reload();
-      }
+      location.reload();
     });
   }
 });
