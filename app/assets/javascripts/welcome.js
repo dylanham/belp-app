@@ -118,8 +118,8 @@ function averageRatings(ratings){
   if (ratings.length < 1) {
     return null;
   }
-   var sum = ratings.reduce(function(sum, incr){
-    return sum + incr['score'];
+   var sum = ratings.reduce(function(sum, rating){
+    return sum + rating['score'];
   },0);
   return sum / ratings.length;
 }
