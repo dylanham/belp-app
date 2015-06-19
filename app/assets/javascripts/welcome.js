@@ -168,6 +168,10 @@ $(document).ready(function() {
       $('.select-form, .state-filter, .alert-danger').remove();
       var query = localStorage['city'];
       buildBreweriesTable(query, data, true);
+      if (localStorage['state']){
+        console.log('hi');
+        filterByState(localStorage['state']);
+      }
     });
     $(document).on('click', '.state-filter', function(){
       var state = $(".select-form").children("option").filter(":selected").text();
