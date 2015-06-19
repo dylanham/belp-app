@@ -17,8 +17,8 @@
           .navbar-header.col-md-12
             %ul.nav.navbar-nav.navbar-right
               -if current_user
-                %li= link_to current_user.name, user_path(current_user)
-                %li= link_to 'Sign Out', signout_path
+                %li{id:"btn-login"}= link_to current_user.name, user_path(current_user)
+                %li{id:"btn-logout"}= link_to 'Sign Out', signout_path
               -else
                 .btn-group.login
                   %a.btn.btn-primary.disabled
