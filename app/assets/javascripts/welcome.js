@@ -198,6 +198,7 @@ $(document).ready(function() {
       }
       localStorage.setItem("dataCache", JSON.stringify(data));
       $('.loading').hide('slow');
+      location.reload();
     });
   }
 });
