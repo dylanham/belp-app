@@ -5,9 +5,12 @@ function handleNull(value){
   return value;
 }
 
-function findBreweriesByCity(query, breweriesJson){
+function buildBreweriesTable(query, breweriesJson){
+  var sortRequested = arguments[2];
+  $('.loading').show('slow');
   $('table').hide();
   $('.brew-tour-link').hide();
+  $('.best-ratings').hide();
   $('tbody').empty();
   var city = query;
   localStorage.setItem('city', city);
@@ -28,30 +31,25 @@ function findBreweriesByCity(query, breweriesJson){
     var button = '<div class="col-md-1"><button class=" btn btn-default state-filter" type="button">Filter it!</button></div>';
     $('<div class="row"><div class="col-md-3 col-md-offset-3">'+buildSelect(statesArray)+'</div>'+button+'</div>').insertAfter('.search');
   }
-  filtered.forEach(function(object){
-    var webinfo;
-    if (object['website'] != null){
-      if (object['website'].charAt(object['website'].length -1) === '/') {
-        webInfo = object['website'].slice(0, -1);
-      } else {
-        webInfo = object['website'];
-      }
-    } else {
-      webInfo = '';
-    }
+  if (sortRequested){
+    filtered.sort(function(a,b){
+      return Number(averageRatings(b['ratings'])) - Number(averageRatings(a['ratings']));
+    });
+  }
 
+  filtered.forEach(function(object){
     $('.loading').hide('slow');
     $('table').show('slow');
     $('.brew-tour-link').show('slow');
-    var arrowUp = '<i class="fa fa-arrow-up"></i>';
-
+    $('.best-ratings').show('slow');
+    var ratings = buildRatingsWithIcons(averageRatings(object['ratings']));
     var name = '<td class="drag"><a href=/breweries/'+ object['id']  + '>'+object['name']+'</a></td>';
     var address = '<td>' + handleNull(object['address']) + '</td>';
     var city = '<td>' + handleNull(object['city']) + '</td>';
     var state= '<td class="state">' + handleNull(object['state']) + '</td>';
     var zipcode= '<td>' + handleNull(object['zipcode']) + '</td>';
-    var website = '<td><a href='+webInfo+'>'+webInfo+'</a></td>';
-    $('tbody').append('<tr>'+ name + address + city + state + zipcode + website +'</tr>');
+    var website = '<td><a href='+fixWebsiteUrl(object)+'>'+fixWebsiteUrl(object)+'</a></td>';
+    $('tbody').append('<tr>'+ name + ratings + address + city + state + zipcode + website +'</tr>');
     $(function() {
       $( "#catalog tr" ).draggable({
         appendTo: "body",
@@ -81,10 +79,10 @@ function makeSet(array){
   });
 }
 
-function buildSelect(array){
+function buildSelect(states){
   $('.select-form, .state-filter').remove();
   var results ='<select class="form-control select-form">';
-  array.forEach(function(state){
+  states.forEach(function(state){
     results += '<option>'+state+'</option>';
   });
   results += '</select>';
@@ -100,6 +98,38 @@ function filterByState(state){
       }
     }
   });
+}
+
+function fixWebsiteUrl(brewery){
+  var fixedUrl;
+  if (brewery['website'] != null){
+    if (brewery['website'].charAt(brewery['website'].length -1) === '/') {
+      fixedUrl = brewery['website'].slice(0, -1);
+    } else {
+      fixedUrl = brewery['website'];
+    }
+  } else {
+    fixedUrl = '';
+  }
+  return fixedUrl;
+}
+
+function averageRatings(ratings){
+  if (ratings.length < 1) {
+    return null;
+  }
+   var sum = ratings.reduce(function(sum, incr){
+    return sum + incr['score'];
+  },0);
+  return sum / ratings.length;
+}
+
+function buildRatingsWithIcons(number){
+  var results = '<td>'
+  for (var i = 0; i < number; i++){
+    results += '<i class="fa fa-beer"><i>'
+  }
+  return results +='</td>'
 }
 
 $(document).ready(function() {
@@ -126,15 +156,18 @@ $(document).ready(function() {
       $('.select-form').remove();
       var query = localStorage['city'];
       var state = localStorage['state'];
-      findBreweriesByCity(query, data);
+      buildBreweriesTable(query, data);
       filterByState(state)
     } else if (localStorage['city']) {
       var query = localStorage['city'];
       localStorage.removeItem('state');
-      findBreweriesByCity(query, data);
+      buildBreweriesTable(query, data);
     }
-    localStorage.setItem("dataCache", JSON.stringify(data));
-
+    $(document).on('click', '.best-ratings', function(){
+      $('.select-form, .state-filter, .alert-danger').remove();
+      var query = localStorage['city'];
+      buildBreweriesTable(query, data, true);
+    });
     $(document).on('click', '.state-filter', function(){
       var state = $(".select-form").children("option").filter(":selected").text();
       filterByState(state)
@@ -144,7 +177,7 @@ $(document).ready(function() {
       $('.select-form, .state-filter, .alert-danger').remove();
       var query = $(this).closest('div').find('input').val();
       localStorage.removeItem('state');
-      findBreweriesByCity(query, data);
+      buildBreweriesTable(query, data);
     });
   } else {
     var breweries = $.getJSON('/brewery_info.json', function(data) {
@@ -159,7 +192,7 @@ $(document).ready(function() {
       });
       if (localStorage['city']) {
         var query = localStorage['city'];
-        findBreweriesByCity(query, data);
+        buildBreweriesTable(query, data);
       }
       localStorage.setItem("dataCache", JSON.stringify(data));
       $('.loading').hide('slow');
