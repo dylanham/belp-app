@@ -136,6 +136,7 @@ $(document).ready(function() {
   $('table').hide();
   $('.loading').hide();
   $('.brew-tour-link').hide();
+  $('.best-ratings').hide();
   if (localStorage['city']){
     $('.loading').show('slow');
   }
@@ -180,6 +181,7 @@ $(document).ready(function() {
       buildBreweriesTable(query, data);
     });
   } else {
+    $('.loading').show('slow');
     var breweries = $.getJSON('/brewery_info.json', function(data) {
       $('.select-form, .state-filter').remove();
       $(function() {
