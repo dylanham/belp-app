@@ -186,23 +186,27 @@ $(document).ready(function() {
     });
   } else {
     $('.loading').show('slow');
-    var breweries = $.getJSON('/brewery_info.json', function(data) {
-      $('.select-form, .state-filter').remove();
-      $(function() {
-        var availableTags = makeSet(data.map(function(brewery){
-          return handleNull(brewery.city);
-        }));
-        $( "#tags" ).autocomplete({
-          source: availableTags
+    $.ajax({
+      url: '/brewery_info.json',
+      dataType: 'json',
+      success: function(data) {
+        $('.select-form, .state-filter').remove();
+        $(function() {
+          var availableTags = makeSet(data.map(function(brewery){
+            return handleNull(brewery.city);
+          }));
+          $( "#tags" ).autocomplete({
+            source: availableTags
+          });
         });
-      });
-      if (localStorage['city']) {
-        var query = localStorage['city'];
-        buildBreweriesTable(query, data);
+        if (localStorage['city']) {
+          var query = localStorage['city'];
+          buildBreweriesTable(query, data);
+        }
+        localStorage.setItem("dataCache", JSON.stringify(data));
+        $('.loading').hide('slow');
+        location.reload();
       }
-      localStorage.setItem("dataCache", JSON.stringify(data));
-      $('.loading').hide('slow');
-      location.reload();
     });
   }
 });
