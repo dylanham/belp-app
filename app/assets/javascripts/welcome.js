@@ -165,7 +165,7 @@ $(document).ready(function() {
       buildBreweriesTable(query, data);
     }
     $(document).on('click', '.best-ratings', function(){
-      $('.select-form, .state-filter, .alert-danger').remove();
+      $('.select-form, .state-filter, .alert-danger, .alert-success').remove();
       var query = localStorage['city'];
       buildBreweriesTable(query, data, true);
       if (localStorage['state']){
@@ -179,7 +179,7 @@ $(document).ready(function() {
       localStorage.setItem("state", state);
     });
     $(document).on('click', '.beer-finder', function(){
-      $('.select-form, .state-filter, .alert-danger').remove();
+      $('.select-form, .state-filter, .alert-danger, .alert-success').remove();
       var query = $(this).closest('div').find('input').val();
       localStorage.removeItem('state');
       buildBreweriesTable(query, data);

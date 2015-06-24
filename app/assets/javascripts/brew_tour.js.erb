@@ -2,6 +2,7 @@ $(document).ready(function(){
   var google_key = '<%= ENV['secret_google_key'] %>'
   $('.brew-tour-map').first().attr('src','https://www.google.com/maps/embed/v1/place?key='+ google_key +'&q=' + localStorage['city']);
   $(document).on('click', '#build-tour', function(){
+    $('.alert-success').remove();
     $('.error').remove();
     var breweries = $('#cart').find('li');
     var destinations = $.map(breweries, function(brewery, _i){
@@ -14,6 +15,7 @@ $(document).ready(function(){
   });
 
   $(document).on('click', '#save-tour', function(e){
+    $('.alert-success').remove();
     $('.error').remove();
     var that = this;
     var errors = [];
