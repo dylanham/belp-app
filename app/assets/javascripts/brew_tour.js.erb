@@ -58,7 +58,7 @@ $(document).ready(function(){
   });
 });
 
-function buildWaypoints (array){
+function buildWaypoints(array){
   var results = {};
   array.forEach(function(place, index){
     results[index] = results[place] || paramifyString(place);
